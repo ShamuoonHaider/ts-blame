@@ -1,6 +1,8 @@
-import chalk from "chalk";
+import { Chalk } from "chalk";
 import fs from "node:fs";
 import ts from "typescript";
+
+const chalk = new Chalk({ level: 3 });
 
 const formatPointer = (column: number, length: number): string => {
   return " ".repeat(column) + chalk.red("^".repeat(length));
@@ -52,20 +54,20 @@ export const formatDiagnostic = (diagnostic: ts.Diagnostic): string => {
   const lineNumStr = String(lineNum);
   const padding = " ".repeat(lineNumStr.length);
 
- 
   lines.push(
     chalk.red(`error`) +
-      chalk.white(`[TS${diagnostic.code}]: `) +
-      chalk.whiteBright(message),
+      chalk.yellow(`[TS${diagnostic.code}]: `) +
+      chalk.white.bold(message),
   );
 
   lines.push(
-    chalk.cyan(`  --> `) + chalk.white(`${filePath}:${lineNum}:${colNum}`),
+    chalk.cyan(`  --> `) + chalk.blueBright(`${filePath}:${lineNum}:${colNum}`),
   );
   lines.push(chalk.cyan(`${padding} |`));
 
-  // ✅ fixed - removed the literal {
-  lines.push(chalk.cyan(`${lineNumStr} |`) + chalk.white(` ${sourceLine}`));
+  lines.push(
+    chalk.cyan(`${lineNumStr} |`) + chalk.greenBright(` ${sourceLine}`),
+  );
 
   lines.push(chalk.cyan(`${padding} |`) + chalk.red(` ${pointer}`));
   lines.push("");
