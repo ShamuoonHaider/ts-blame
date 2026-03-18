@@ -5,6 +5,7 @@ import chalk from "chalk";
 import logger from "../src/utils/logger.js";
 import check from "../src/commands/check.js";
 import run from "../src/commands/run.js";
+import watch from "../src/commands/watch.js";
 
 const log = logger("cli");
 const program = new Command();
@@ -41,8 +42,7 @@ program
   .description("Watch and re-run a TypeScript file on changes")
   .action(async (file) => {
     log.debug("watch command called with file: %O", file);
-    // will be implemented in watch.ts
-    log.highlight("watch command coming soon...");
+    await watch(file);
   });
 
 program.on("command:*", () => {
