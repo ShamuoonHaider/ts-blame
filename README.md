@@ -2,8 +2,8 @@
 
 > A TypeScript CLI tool with **Rust-like error output** — beautiful, readable, and self-declarative errors for any TypeScript project.
 
-![ts-tool demo](https://img.shields.io/badge/TypeScript-CLI-blue?style=flat-square&logo=typescript)
-![npm version](https://img.shields.io/npm/v/ts-tool?style=flat-square)
+![ts-blame demo](https://img.shields.io/badge/TypeScript-CLI-blue?style=flat-square&logo=typescript)
+![npm version](https://img.shields.io/npm/v/ts-blame?style=flat-square)
 ![license](https://img.shields.io/badge/license-MIT-green?style=flat-square)
 ![pnpm](https://img.shields.io/badge/pnpm-ready-orange?style=flat-square)
 
